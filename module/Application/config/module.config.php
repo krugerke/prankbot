@@ -52,6 +52,8 @@ return array(
             ),
         ),
     ),
+    
+    /** SERVICE MANAGER **/
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
@@ -61,12 +63,15 @@ return array(
             'translator' => 'MvcTranslator',
         ),
     ),
-
+    
+    /** CONTROLLERS **/
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController'
         ),
     ),
+    
+    /** VIEW MGRS **/
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
@@ -83,6 +88,25 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    
+    /** DOCTRINE **/
+    array(
+        'doctrine' => array(
+            'driver' => array(
+                'Album_driver' => array(
+                    'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                    'cache' => 'array',
+                    'paths' => array(__DIR__ . '/../src/Album/Entity')
+                ),
+                'orm_default' => array(
+                    'drivers' => array(
+                         'Album\Entity' =>  'Album_driver'
+                    ),
+                ),
+            ),
+        ),                 
+    ),
+    
     // Placeholder for console routes
     'console' => array(
         'router' => array(

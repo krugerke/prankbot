@@ -9,3 +9,6 @@ nbproject
 composer.lock
 vendor/bin
 zf-commons
+ZF2
+doctrine
+symfony
