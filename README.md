@@ -122,6 +122,7 @@ Set database values:
 
 ### Entity Import
 
+**Setup Doctrine Module Binaries Globally ** 
     $ composer global require doctrine/doctrine-module
 
     $ export PATH=~/.composer/vendor/bin:$PATH
