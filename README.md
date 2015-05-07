@@ -133,9 +133,11 @@ Set database values:
     $ composer global update
 
 **Convert Mapping: **
+    
     $ doctrine-module orm:convert-mapping --namespace="Application\\Model\\" --force  --from-database annotation ./module/Application/src/
 
 **Generate Entities: **
+    
     $ doctrine-module orm:generate-entities ./module/Application/src/ --generate-annotations=true
 
 **Test: ** Add this to your controller:
