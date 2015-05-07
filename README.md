@@ -134,7 +134,7 @@ Set database values:
 **Generate Entities: **
     $ doctrine-module orm:generate-entities ./module/Application/src/ --generate-annotations=true
 
-**Test --> Add this to your controller. **
+**Test: ** Add this to your controller:
 
     public function indexAction() {
         $em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
