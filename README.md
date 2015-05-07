@@ -80,7 +80,9 @@ Doctrine ORM Setup
 ------------------
 
 Doctrine ORM has been completely configured with the exception of DB credentials. Once the DB has been configured you will have to import the 
-Doctrine entities from the DB.  
+Doctrine entities from the DB.
+
+https://samsonasik.wordpress.com/2013/04/10/zend-framework-2-generate-doctrine-entities-from-existing-database-using-doctrinemodule-and-doctrineormmodule/  
 
 ### DB Credential Configuration
 
