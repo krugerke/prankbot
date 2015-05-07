@@ -135,6 +135,7 @@ Set database values:
     $ doctrine-module orm:generate-entities ./module/Application/src/ --generate-annotations=true
 
 **Test --> Add this to your controller. **
+
     public function indexAction() {
         $em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
         $data = $em->getRepository('Album\Entity\Track')->findAll();
