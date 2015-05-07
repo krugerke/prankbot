@@ -1,5 +1,5 @@
-ZendSkeletonApplication
-=======================
+ZF2 Development Stack
+=====================
 
 Introduction
 ------------
