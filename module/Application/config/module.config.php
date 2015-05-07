@@ -93,14 +93,14 @@ return array(
     array(
         'doctrine' => array(
             'driver' => array(
-                'Album_driver' => array(
+                'application_driver' => array(
                     'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                     'cache' => 'array',
-                    'paths' => array(__DIR__ . '/../src/Album/Entity')
+                    'paths' => array(__DIR__ . '/../src/Application/Model')
                 ),
                 'orm_default' => array(
                     'drivers' => array(
-                         'Album\Entity' =>  'Album_driver'
+                         'Application\Model' =>  'application_driver'
                     ),
                 ),
             ),

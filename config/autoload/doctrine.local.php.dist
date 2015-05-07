@@ -1,5 +1,4 @@
 <?php
-//config/autoload/doctrine.local.php
 return array(
     'doctrine' => array(
         'connection' => array(

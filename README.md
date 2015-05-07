@@ -75,3 +75,71 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+
+Doctrine ORM Setup
+------------------
+
+Doctrine ORM has been completely configured with the exception of DB credentials. Once the DB has been configured you will have to import the 
+Doctrine entities from the DB.  
+
+### DB Credential Configuration
+
+Rename config/autoload/doctrine.local.php.dist to doctrine.local.php
+
+Set database values: 
+
+    **config/autoload/doctrine.local.php **
+
+    <?php
+    return array(
+        'doctrine' => array(
+            'connection' => array(
+                'orm_default' => array(
+                    'driverClass' => 'Doctrine\DBAL\Driver\PDOPgSql\Driver',
+                        'params' => array(
+                            'user' => 'root',
+                            'password' => 'password',
+                    ),
+                ),
+            )
+    ));
+
+    **config/autoload/doctrine.global.php **
+
+    return array(
+        'doctrine' => array(
+            'connection' => array(
+                'orm_default' => array(
+                    'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                        'params' => array(
+                            'host' => 'localhost',
+                            'port' => '3306',
+                            'dbname' => 'hello_world_db',
+                    ),
+                ),
+            )
+    ));
+
+### Entity Import
+
+    $ composer global require doctrine/doctrine-module
+
+    $ export PATH=~/.composer/vendor/bin:$PATH
+
+    $ composer global update
+
+**Convert Mapping: **
+    $ doctrine-module orm:convert-mapping --namespace="Application\\Model\\" --force  --from-database annotation ./module/Application/src/
+
+**Generate Entities: **
+    $ doctrine-module orm:generate-entities ./module/Application/src/ --generate-annotations=true
+
+**Test --> Add this to your controller. **
+    public function indexAction() {
+        $em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+        $data = $em->getRepository('Album\Entity\Track')->findAll();
+        foreach($data as $key=>$row) {
+            echo $row->getAlbum()->getArtist().' :: '.$row->getTrackTitle();
+            echo '<br />';
+        }
+    }
