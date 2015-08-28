@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ZF2 Development Stack
 =====================
 
@@ -150,3 +151,6 @@ Set database values:
             echo '<br />';
         }
     }
+=======
+# prankbot
+>>>>>>> 9f1d412e5339daaa830984c0a1fde1902ed833fc
