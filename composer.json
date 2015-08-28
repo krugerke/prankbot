@@ -15,6 +15,7 @@
          "bjyoungblood/bjy-authorize": "dev-master",
         "zf-commons/zfc-user": "1.x-dev",
         "zf-commons/zfc-user-doctrine-orm": "dev-master",
-        "zf-commons/zfc-admin": "dev-master"
+        "zf-commons/zfc-admin": "dev-master",
+        "al3xdm/twilio-zf2" : "dev-master"
     }
 }
