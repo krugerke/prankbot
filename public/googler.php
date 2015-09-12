@@ -8,9 +8,11 @@ $BITLY_AUTH_TOKEN = "7eca854a2d6ce5a69ec3f8ef232565ae15c31615";
 
 $BITLY_RETURN_FORMAT = 'txt';
 
-$USERNAME = "God has googled this for you.";
+$USERNAME = "God";
 
 $ICON = ":godmode:";
+
+$BOTNAME = 'God Says';
 
 $text 			= $_REQUEST['text'];
 $channel_name 	= $_REQUEST['channel_name'];
@@ -34,18 +36,46 @@ $curl = curl_init($INCOMING_WEBHOOK_URL);
 
 curl_setopt($curl, CURLOPT_POST, true);
 
-$payload = array(
-    'text' => rawurlencode($shortened_url),
-    'username' => $USERNAME,
-    'icon_emoji' => $ICON,
-    'channel' => "#".$channel_name,
-    'unfurl_links' => 'true'
-);
 
-$jsonPayload = "payload=".json_encode($payload);
+$payload  = array(
+			'text' => $shortened_url,
+			'icon_emoji' => $ICON,
+			'username' => $USERNAME,
+		    'channel' => "#".$channel_name,
+		    'new-bot-name' => $BOTNAME,
+		    'unfurl_links' => true,
+		);
 
-curl_setopt($curl, CURLOPT_POSTFIELDS, $jsonPayload);
+$jsonPayload = json_encode($payload, JSON_PRETTY_PRINT);
+
+//exit('payload='.$jsonPayload);
+
+curl_setopt($curl, CURLOPT_POSTFIELDS, 'payload='.$jsonPayload);
 
 $return = curl_exec($curl);
 curl_close($curl);
+
+/*
+$payload = array(
+	'attachments' => array(
+		array(
+		    'username' => $USERNAME,
+		    'channel' => "#".$channel_name,
+		    'new-bot-name' => $BOTNAME,
+		    'unfurl_links' => true,
+			'color' => '#0099CC',
+			'fallback' => 'This is a test',
+			'pretext' => 'This is pretext',
+			'fields' => array(array(
+				'title' => 'God Has Answered',
+					'value' => $shortened_url,
+					'short' => true,
+					'icon_emoji' => $ICON,
+					
+					)
+				)
+		)
+	)
+);
+*/
 ?>
