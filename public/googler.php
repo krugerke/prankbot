@@ -1,9 +1,17 @@
 <?php
-/* TIM */
-$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+switch (@$_REQUEST['token']) {
+	case 'LiRZGsNnU9n1QXMBVAXY3JD1':
+		
+		$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+		
+		break;
+	
+	default:
 
-/* MINE */
-//$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+		$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+
+		break;
+}
 
 $bitly_url = "https://api-ssl.bitly.com/v3/shorten?";
 
