@@ -1,6 +1,9 @@
 <?php
+/* TIM */
+$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
-$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+/* MINE */
+//$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
 $bitly_url = "https://api-ssl.bitly.com/v3/shorten?";
 
@@ -12,7 +15,7 @@ $USERNAME = "God";
 
 $ICON = ":godmode:";
 
-$BOTNAME = 'God Says';
+$BOTNAME = 'God Says'; 
 
 $text 			= $_REQUEST['text'];
 $channel_name 	= $_REQUEST['channel_name'];
