@@ -3,7 +3,7 @@
 $INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
 /* MINE */
-//$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+$INCOMING_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
 $bitly_url = "https://api-ssl.bitly.com/v3/shorten?";
 
@@ -54,8 +54,9 @@ $jsonPayload = json_encode($payload, JSON_PRETTY_PRINT);
 //exit('payload='.$jsonPayload);
 
 curl_setopt($curl, CURLOPT_POSTFIELDS, 'payload='.$jsonPayload);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
-$return = curl_exec($curl);
+curl_exec($curl);
 curl_close($curl);
 
 /*
